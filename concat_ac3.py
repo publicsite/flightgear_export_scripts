@@ -120,21 +120,21 @@ def processACFile(ACFilePath, splitExtension, splitLine, globalMaterials=None, m
                 mainBody.append("OBJECT poly")
                 mainBody.append("name \"_" + str(numberOfObjects) + "_" + splitExtension[0] + "\"")
                 numberOfObjects = numberOfObjects + 1
-                roll = 0
                 heading = 0
                 pitch = 0
+                roll = 0
                 if len(splitLine) < 7:
-                    pitch = math.radians(float(splitLine[5]) + 5)
-                    heading = math.radians(float(0))
-                    roll = math.radians(float(270))
+                    heading = math.radians(float(splitLine[5]))
+                    pitch = math.radians(float(0))
+                    roll = math.radians(float(0))
                 elif len(splitLine) < 8:
-                    pitch = math.radians(float(splitLine[5]) + 5)
-                    heading = math.radians(float(splitLine[6]) + 0)
-                    roll = math.radians(float(270))
+                    heading = math.radians(float(splitLine[5]))
+                    pitch = math.radians(float(splitLine[6]))
+                    roll = math.radians(float(0))
                 elif len(splitLine) < 9:
-                    pitch = math.radians(float(splitLine[5]) + 5)
-                    heading = math.radians(float(splitLine[6]) + 0)
-                    roll = math.radians(float(splitLine[7]) + 270)
+                    heading = math.radians(float(splitLine[5]))
+                    pitch = math.radians(float(splitLine[6]))
+                    roll = math.radians(float(splitLine[7]))
 
                 ca = math.cos(roll)
                 sa = math.sin(roll)
