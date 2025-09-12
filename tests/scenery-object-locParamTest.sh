@@ -15,7 +15,7 @@ FG_ROOT="${PWD}/fgdata/fgdata/" FG_SCENERY="${PWD}/fgdata/fgdata/Scenery/Scenery
 | grep woo | \
 cut -d ' ' -f 2)"
 
-printf "OBJECT_SHARED %s/%s %s %s 135 135 135\n" "${PWD}" "383925-scenery.ac" "$lonlat" "$elevation" > atemp.stg
+printf "OBJECT_SHARED %s/%s %s %s 142 142 142\n" "${PWD}" "383925-scenery.ac" "$lonlat" "$elevation" > atemp.stg
 
 grep "ac " fgdata/fgdata/Scenery/SceneryPack.BIKF/Objects/w160n20/w157n20/383925.stg >> atemp.stg
 
