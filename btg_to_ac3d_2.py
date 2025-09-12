@@ -416,8 +416,8 @@ class BTG:
 
     f.write("OBJECT world\r\n")
 
-    if self.matrix:
-      f.write("rot %f %f %f  %f %f %f  %f %f %f\r\n" % (self.matrix[0][0], self.matrix[0][1], self.matrix[0][2], self.matrix[1][0], self.matrix[1][1], self.matrix[1][2], self.matrix[2][0], self.matrix[2][1], self.matrix[2][2]))
+    #if self.matrix:
+    #  f.write("rot %f %f %f  %f %f %f  %f %f %f\r\n" % (self.matrix[0][0], self.matrix[0][1], self.matrix[0][2], self.matrix[1][0], self.matrix[1][1], self.matrix[1][2], self.matrix[2][0], self.matrix[2][1], self.matrix[2][2]))
 
     donealready = []
 
