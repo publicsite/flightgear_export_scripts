@@ -120,21 +120,21 @@ def processACFile(ACFilePath, splitExtension, splitLine, globalMaterials=None, m
                 mainBody.append("OBJECT poly")
                 mainBody.append("name \"_" + str(numberOfObjects) + "_" + splitExtension[0] + "\"")
                 numberOfObjects = numberOfObjects + 1
+                pitch = 90
                 heading = 0
-                pitch = 0
                 roll = 0
                 if len(splitLine) < 7:
-                    heading = math.radians(float(splitLine[5]))
-                    pitch = math.radians(float(0))
-                    roll = math.radians(float(0))
+                    pitch = math.radians(pitch + float(splitLine[5]))
+                    heading = math.radians(float(heading))
+                    roll = math.radians(float(roll))
                 elif len(splitLine) < 8:
-                    heading = math.radians(float(splitLine[5]))
-                    pitch = math.radians(float(splitLine[6]))
-                    roll = math.radians(float(0))
+                    pitch = math.radians(pitch + float(splitLine[5]))
+                    heading = math.radians(heading + float(splitLine[6]))
+                    roll = math.radians(float(roll))
                 elif len(splitLine) < 9:
-                    heading = math.radians(float(splitLine[5]))
-                    pitch = math.radians(float(splitLine[6]))
-                    roll = math.radians(float(splitLine[7]))
+                    pitch = math.radians(pitch + float(splitLine[5]))
+                    heading = math.radians(heading + float(splitLine[6]))
+                    roll = math.radians(roll + float(splitLine[7]))
 
                 ca = math.cos(roll)
                 sa = math.sin(roll)
@@ -160,7 +160,7 @@ def processACFile(ACFilePath, splitExtension, splitLine, globalMaterials=None, m
                     rotationMatrix[1][2]) + " " + str(rotationMatrix[2][0]) + " " + str(
                     rotationMatrix[2][1]) + " " + str(rotationMatrix[2][2]))
 
-                lat = 0 - float(splitLine[2])
+                lat = float(splitLine[2])
                 lon = float(splitLine[3])
                 alt = float(splitLine[4])
 
@@ -180,8 +180,13 @@ def processACFile(ACFilePath, splitExtension, splitLine, globalMaterials=None, m
                 #    "loc " + str(convertedCoords[1]) + " " + str(convertedCoords[2]) + " " + str(
                 #    alt))
 
+
                 mainBody.append(
-                    "loc " + str(convertedCoords[1]) + " " + str(convertedCoords[0]) + " " + str(scaled_alt))
+                    "loc " + str(convertedCoords[0]) + " " + str(scaled_alt) + " " + str(convertedCoords[1]))
+
+
+                #mainBody.append(
+                #    "loc " + str(convertedCoords[1]) + " " + str(convertedCoords[0]) + " " + str(0))
                 # mainBody.append("loc " + str(lon) + " " + str(lat) + " " + str(rad))
             else:
                 splitLine2 = line2.strip().split(" ")
