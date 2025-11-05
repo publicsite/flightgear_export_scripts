@@ -1,5 +1,8 @@
 #!/bin/sh
 
+OLD_UMASK="$(umask)"
+umask 0022
+
 #Authors: J05HYYY
 
 thepwd="$PWD"
@@ -30,3 +33,5 @@ find Terrain/AC3D/ -maxdepth 2 -mindepth 2 -type d | while read tile; do
 		rm temp.stg
 	done
 done
+
+umask "${OLD_UMASK}"
