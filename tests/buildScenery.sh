@@ -1,5 +1,8 @@
 #!/bin/sh
 
+OLD_UMASK="$(umask)"
+umask 0022
+
 #Authors: J05HYYY
 
 thepwd="$PWD"
@@ -109,3 +112,5 @@ done
 #		temp.stg
 #	done
 #done
+
+umask "${OLD_UMASK}"
