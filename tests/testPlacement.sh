@@ -1,5 +1,8 @@
 #!/bin/sh
 
+OLD_UMASK="$(umask)"
+umask 0022
+
 #Authors: J05HYYY
 
 #This test must be run MANUALLY
@@ -43,3 +46,5 @@ python3 ../concat_ac3.py "$stg" > objects1.ac
 rm -f fgdata/fgdata/Scenery/SceneryPack.BIKF/Objects/w130n30/w122n37/958401.stg
 rmdir fgdata/fgdata/Scenery/SceneryPack.BIKF/Objects/w130n30/w122n37
 rmdir fgdata/fgdata/Scenery/SceneryPack.BIKF/Objects/w130n30
+
+umask "${OLD_UMASK}"
