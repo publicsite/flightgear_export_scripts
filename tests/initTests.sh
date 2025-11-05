@@ -1,6 +1,9 @@
 #!/bin/sh
 #Authors J05HYYY
 
+OLD_UMASK="$(umask)"
+umask 0022
+
 thepwd="${PWD}"
 
 #get flightgear data
@@ -48,3 +51,5 @@ cd $thepwd
 #git clone https://github.com/publicsite/flightgear_export_scripts
 #sed -i "s#FG_ROOT = \"/usr/share/games/flightgear/\"#FG_ROOT = \"${thepwd}/fgdata/fgdata/\"#g" flightgear_export_scripts/btg_to_ac3d_2.py
 #sed -i "s#FG_ROOT = \"/usr/share/games/flightgear/\"#FG_ROOT = \"${thepwd}/fgdata/fgdata/\"#g" flightgear_export_scripts/concat_ac3.py
+
+umask "${OLD_UMASK}"
