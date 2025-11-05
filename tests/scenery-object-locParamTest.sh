@@ -1,5 +1,8 @@
 #!/bin/sh
 
+OLD_UMASK="$(umask)"
+umask 0022
+
 # 1) cd to tests directory, run this script
 
 rm 383925-scenery.ac out.ac atemp.stg #dont worry if this fails, its just to clean up
@@ -48,3 +51,5 @@ python3 ${PWD}/../concat_ac3.py "atemp.stg" >> "out.ac"
 # ==what this tells us==
 # The scenery loc param and the object loc params are 'too different' for some reason, and this needs correcting.
 #
+
+umask "${OLD_UMASK}"
